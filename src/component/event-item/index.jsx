@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { mockFetch } from "../../utils/mockFetch"
+import { EventItem } from '../../components/event-item'
 import './style.css'
 
 export const EventsPage = () => {
@@ -28,11 +29,7 @@ export const EventsPage = () => {
       {error && <div style={{ color: 'red' }}>{error}</div>}
       {
         events.map((e) => (
-          <div className="events-item" key={e.id}>
-            <h1>{e.name}</h1>
-            <p>{e.desc}</p>
-            <address>{e.place}</address>
-          </div>
+          <EventItem key={e.id} event={e}/>
         ))
       }
     </div>
