@@ -130,10 +130,7 @@
         display: block;
         width: 100vw;
     }
-    .heroImg {
-        display: none;
-    }
-    .hero .circle {
+    .hero .right {
         display: none;
     }
     .hero .wrapper {
@@ -157,7 +154,14 @@
 
 @media screen and (max-width: 808px) {
     .hero {
-        height: 800px;
+        height: 100vh;
+        width: 100%;
+    }
+    .hero .left {
+        margin-right: 0;
+    }
+    .hero .description {
+        width: 90%;
     }
     .header button {
         display: none;
@@ -166,7 +170,10 @@
         flex-direction: column;
     }
     .hero .left .recommendations {
-        margin-top: 20px;
+        margin: 20px 0;
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
     }
     .header {
         display: flex;
@@ -185,6 +192,5 @@
     }
     .hamburgerIcon:active {
         transform: scale(0.9);
-    }
-    
+    }   
 }

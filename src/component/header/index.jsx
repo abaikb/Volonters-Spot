@@ -1,17 +1,43 @@
 import './style.css'
+import './sidebar.jsx'
 import HeroImg from '../image/shutterstock_610533473-1.jpg'
 import HamburgerIcon from '../image/bars.png'
+import HamburgerMenu from './sidebar.jsx'
+import Sidebar from './sidebar'
 export function Header() {
+    // const App = () => {
+    //     const [isOpen, setIsOpen] = useState(false);
+      
+    //     const handleToggle = () => {
+    //       setIsOpen(!isOpen);
+    //     }
+      
+    //     return (
+    //       <div>
+    //         <MenuIcon onClick={handleToggle} />
+    //         {isOpen && <Sidebar setIsOpen={setIsOpen} />}
+    //       </div>
+    //     );
+    //   }
+
     return (
         <>
         <div className="header">
             <div className='logo'> Volunteer's <span>spot</span> </div>
             <img className='hamburgerIcon' src={HamburgerIcon} alt="" />
+            
             <button className='about'>О нас</button>
             <button className='news'>Новости</button>
             <button className='events'>События</button>
             <button className='signup'> Зарегистрироваться</button>
             <button className='login'>Войти</button>
+ 
+
+
+
+
+
+
             
         </div>
         <div className='hero'>
@@ -42,3 +68,5 @@ export function Header() {
         </>
     )
 }
+ export default HamburgerIcon;
+
