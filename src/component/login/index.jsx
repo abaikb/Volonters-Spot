@@ -10,8 +10,20 @@ const Login = () => {
       .min(5, "Логин должен содержать минимум 5 символов"),
     password: Yup.string()
       .required("Введите пароль")
-      .min(5, "Пароль должен содержать минимум 5 символов"),
+      .test(
+        "password",
+        "Пароль должен содержать минимум 5",
+        (value) => {
+          const commonPasswords = ["123456", "password", "123456789"];
+          return (
+            value &&
+            value.length >= 5 &&
+            !commonPasswords.includes(value.toLowerCase())
+          );
+        }
+      ),
   });
+  
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +38,8 @@ const Login = () => {
       await loginSchema.validate({ username, password }, { abortEarly: false });
       console.log("Username:", username);
       console.log("Password:", password);
+      setUsername("")
+      setPassword("")
       setErrors({});
     } catch (validationErrors) {
       const newErrors = {};
