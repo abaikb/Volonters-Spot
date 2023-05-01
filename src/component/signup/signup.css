@@ -40,7 +40,7 @@
   outline: none;
 }
 
-.btn {
+.btn-signup {
   width: 477px;
   height: 60px;
   background: #45b871;
@@ -59,7 +59,12 @@
   margin-top: 50px;
 }
 
-@media only screen and (max-width: 768px) {
+.feedback {
+  color: red;
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 868px) {
   .form-3d {
     width: 80%;
     height: 736px;
@@ -67,18 +72,30 @@
 
   .form-control {
     width: 60vw;
+    margin-left: 0;
   }
 
-  .btn {
+  .btn-signup {
     width: 80%;
   }
+
+  .feedback {
+    color: red;
+    font-size: 80%;
+  }
+  
 }
 
 @media only screen and (max-width: 434px) {
   .form-control {
+    margin-left: 0;
     font-size: 4vw;
   }
-  .btn {
+  .btn-signup {
     font-size: 4vw;
+  }
+  .feedback {
+    color: red;
+    font-size: 20%;
   }
 }
