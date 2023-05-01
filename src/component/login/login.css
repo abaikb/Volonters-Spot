@@ -34,11 +34,11 @@
   border: none;
 }
 
-.form-control:active,:focus {
-    border: none;
-    outline: none;
+.form-control:active,
+:focus {
+  border: none;
+  outline: none;
 }
-
 
 .btn {
   width: 477px;
@@ -59,3 +59,17 @@
   margin-top: 50px;
 }
 
+@media only screen and (max-width: 768px) {
+  .form-3d {
+    width: 80%;
+    height: 536px;
+  }
+
+  .form-control {
+    width: 60vw;
+  }
+
+  .btn {
+    width: 80%;
+  }
+}
