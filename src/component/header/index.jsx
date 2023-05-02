@@ -12,7 +12,7 @@ export const Header = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setUser(data);
+        setUser(data);r
       });
   }, []);
 
