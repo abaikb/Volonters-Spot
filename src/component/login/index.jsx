@@ -5,50 +5,37 @@ import "./login.css";
 
 const Login = () => {
   const loginSchema = Yup.object().shape({
-    username: Yup.string()
-      .required("Введите логин")
-      .min(5, "Логин должен содержать минимум 5 символов"),
+    username: Yup.string().required("Введите логин"),
     password: Yup.string()
       .required("Введите пароль")
-      .test(
-        "password",
-        "Пароль должен содержать минимум 5",
-        (value) => {
-          const commonPasswords = ["123456", "password", "123456789"];
-          return (
-            value &&
-            value.length >= 5 &&
-            !commonPasswords.includes(value.toLowerCase())
-          );
-        }
-      ),
+      .test("password", "Пароль должен содержать минимум 5", (value) => {
+        const commonPasswords = ["123456", "password", "123456789"];
+        return value && !commonPasswords.includes(value.toLowerCase());
+      }),
   });
-  
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
- 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch('http://localhost:1717/login', {
-      method: 'POST',
-      body: JSON.stringify({username,password}),
+    fetch("http://localhost:1717/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     })
-    .then(res => res.json())
-    .then((data) => {
-      localStorage.setItem('token', data.token)
-    }) 
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("token", data.token);
+      });
 
     try {
       await loginSchema.validate({ username, password }, { abortEarly: false });
-      setUsername("")
-      setPassword("")
+      setUsername("");
+      setPassword("");
       setErrors({});
     } catch (validationErrors) {
       const newErrors = {};
@@ -93,7 +80,7 @@ const Login = () => {
           Войти
         </button>
         <div className="link">
-        Нет аккаунта?<Link to="/signup">Зарегистрируйся</Link>
+          Нет аккаунта?<Link to="/signup">Зарегистрируйся</Link>
         </div>
       </form>
     </div>

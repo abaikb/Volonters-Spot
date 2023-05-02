@@ -7,7 +7,7 @@ export const Header = () => {
   useEffect(() => {
     fetch('http://localhost:1717/me', {
       headers: {
-        'X-Auth': 'my-auth-token'
+        'X-Auth': localStorage.getItem('token')
       }
     })
       .then(res => res.json())
@@ -18,8 +18,15 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <div>{user ? user.name : 'Loading...'}</div>
-      Header
+      {
+        user
+        ? (
+          <div>
+            <div>Logged in as {user.username}</div>
+          </div>
+        )
+        : <p>Loading user information...</p>
+      }
     </header>
   );
 };
