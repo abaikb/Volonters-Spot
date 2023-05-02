@@ -33,11 +33,20 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    fetch('http://localhost:1717/login', {
+      method: 'POST',
+      body: JSON.stringify({username,password}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data) => {
+      localStorage.setItem('token', data.token)
+    }) 
 
     try {
       await loginSchema.validate({ username, password }, { abortEarly: false });
-      console.log("Username:", username);
-      console.log("Password:", password);
       setUsername("")
       setPassword("")
       setErrors({});

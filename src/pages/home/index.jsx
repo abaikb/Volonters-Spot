@@ -1,5 +1,9 @@
+import Slide from "../../component/slide"
+
 export const HomePage = () => {
     return (
-        <div>HomePage</div>
+        <div>
+            <Slide/>
+        </div>
     )
 }
