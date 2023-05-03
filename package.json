@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "swiper": "^9.2.4",
     "web-vitals": "^2.1.4",
+    "yap": "^0.0.2",
     "yup": "^1.1.1"
   },
   "scripts": {
