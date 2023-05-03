@@ -1,9 +1,9 @@
-import Slide from "../../component/slide"
+import { Hero } from "../../component/hero/index.jsx"
 
 export const HomePage = () => {
     return (
         <div>
-            <Slide/>
+             <Hero/>
         </div>
     )
 }

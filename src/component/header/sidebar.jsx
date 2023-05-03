@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import HamburgerIcon from './index'
 
-const Sidebar = (props) => {
+export const Sidebar = (props) => {
   const handleClose = () => {
     props.setIsOpen(false);
   }

@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div className="wrapper-login">
-      <form onSubmit={handleSubmit} className="p-3 rounded shadow form">
+      <form id="login" onSubmit={handleSubmit} className="p-3 rounded shadow form">
         <h1 className="text-center mb-4">Вход</h1>
         <div className="form-group">
           <input
