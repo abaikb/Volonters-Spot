@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import "./login.css";
@@ -20,7 +21,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch("http://localhost:1717/login", {
+    fetch("http://16.170.37.57/auth/login/", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
@@ -29,6 +30,7 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         localStorage.setItem("token", data.token);
       });
 
