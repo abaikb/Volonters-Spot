@@ -2,7 +2,7 @@
     width: 100vw;
     height: 90vh;
     background-color: white;
-    padding: 170px 70px;
+    padding: 60px 70px;
 
     display: flex;
     justify-content: center;
@@ -10,19 +10,22 @@
 }
 
 .hero .left {
-    margin-left: 10%;
     margin-right: 5%;
-    width: 35%;
+    margin-top: 40px;
+    width: 60%;
     font-size: 18px;
     font-weight: 500;
 }
 .left .wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
+    height: 500px;
+    padding: 20px;
+    border-radius: 20px;
 }
-.hero .left h3 {
+.hero .left .wrapper h3 {
     color: #45B871;
 }
 .hero .left .recommendations {
@@ -30,9 +33,10 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 .left .recommendations div img {
-    margin-right: 60px;
+    margin-right: 80px;
 }
 .left .recommendations div {
     width: 150px;
@@ -42,6 +46,7 @@
 .hero .right {
     position: relative;
     margin-right: 10%;
+    margin-top: 60px;
     width: 35%;
 }
 .hero .circle {
@@ -62,71 +67,67 @@
 }
 .heroBackground {
     display: none;
+
 }
-@media screen and (max-width: 1120px) {
-    .hero .left {
-        margin-left: 1%;
-    }
-}
-@media screen and (max-width: 1020px) {
+
+@media screen and (max-width: 1160px) {
     .hero {
+        display: flex;
         flex-direction: column;
         align-items: start;
-        padding-left: 0;
+        padding: 0;
         width: 100%;
-        height: 900px;
-        background-color: #E4F5EB;
+        background-image: url(https://www.nycfoodpolicy.org/wp-content/uploads/2019/04/shutterstock_610533473-1.jpg);
+        background-size: cover;
+
     }
     .hero .left {
-        margin-left: 10%;
+        margin: 10% 0;
     }
     .hero .heroBackground {
         display: block;
         width: 100vw;
+        height: 100vh;
     }
     .hero .right {
         display: none;
     }
     .hero .wrapper {
-        flex-direction: row;
+        flex-direction: column;
         align-items: start;
+        background-color: #E4F5EB;
+
+        width: 60%;
     }
     .hero .left {
         width: 100%;
-        padding-top: 40px;
+        height: 700px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .hero .description {
         margin-top: 20px;
-        width: 800px;
-    }
-    .hero .left .recommendations {
-        margin-top: -50px;
-        margin-left: 10%;
-        margin-right: 5%;
     }
 }
 
-@media screen and (max-width: 808px) {
-    .hero {
-        height: 100vh;
-        width: 100%;
-    }
+@media screen and (max-width: 1021px) {
     .hero .left {
-        margin-right: 0;
+    }  
+}
+@media screen and (max-width: 817px) {
+    .hero .left .wrapper{
+        height: 400px;
+        
     }
-    .hero .description {
-        width: 90%;
-    }
-    .header button {
-        display: none;
-    }
-    .hero .wrapper {
-        flex-direction: column;
-    }
-    .hero .left .recommendations {
-        margin: 20px 0;
-        width: 90%;
-        display: flex;
-        justify-content: space-around;
+.hero .left .wrapper .recommendations {
+    display: none;
+}
+}
+@media screen and (max-width: 583px) {
+    .hero .left .wrapper{
+        width: 80%;
+        
     }
 }
