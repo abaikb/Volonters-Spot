@@ -10,7 +10,7 @@ export const EventsPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    mockFetch("/events.json")
+    fetch('http://localhost:3000/posts')
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
