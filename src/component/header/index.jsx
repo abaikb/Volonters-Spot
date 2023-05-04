@@ -1,9 +1,44 @@
 import './style.css'
 
 import HamburgerIcon from '../image/bars.png'
-import HamburgerMenu from './sidebar.jsx'
-import Sidebar from './sidebar'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react';
+
+const HamburgerMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="menu">
+      <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={`menu-items ${isOpen ? 'open' : ''}`}>
+            <NavLink to="/about">
+              <button className='aboutActive'>Профиль</button>
+            </NavLink>  
+            <NavLink to="/events">
+              <button className='eventsActive'>События</button>
+            </NavLink>    
+            <NavLink to="/signup">
+              <button className='signupActive'>Зарегистрироваться</button>
+            </NavLink>
+            <NavLink to="/login">
+              <button className='loginActive'>Войти</button>
+            </NavLink>   
+      </ul>
+    </div>
+  );
+};
+
+export default HamburgerMenu;
+
+
 
 export function Header() {
     // const App = () => {
@@ -25,10 +60,9 @@ export function Header() {
         <>
         <div className="header">
           <NavLink to='/' className='logo'>Volunteer's <span>spot</span></NavLink>
-            <img className='hamburgerIcon' src={HamburgerIcon} alt="" />
             
             <NavLink to="/about">
-              <button className='about'>О нас</button>
+              <button className='about'>Профиль</button>
             </NavLink>
             <NavLink to="/events">
               <button className='events'>События</button>
@@ -39,10 +73,10 @@ export function Header() {
             <NavLink to="/login">
               <button className='login'>Войти</button>
             </NavLink> 
+            <HamburgerMenu/>
         </div>
         
         </>
     )
 }
- export default HamburgerIcon;
 

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/home";
 import { AboutPage } from "./pages/about";
 import { EventsPage } from "./pages/events";
-import { EventItemPage } from "./pages/event-item";
+import { EventItemPage } from "./pages/eventItemPage/";
 import { EventFormPage } from "./pages/events-form";
 import { LoginPage } from "./pages/login";
 import { SignupPage } from "./pages/signup";
