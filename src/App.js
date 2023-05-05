@@ -10,6 +10,7 @@ import { SignupPage } from "./pages/signup";
 import { ProfilePage } from "./pages/profile";
 import { NotFoundPage } from "./pages/not-foud";
 import { Layout } from "./component/layout";
+import { ProfileEdit } from "./pages/profile-edit";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
 
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/:id/edit" element={<ProfileEdit />} />
+
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

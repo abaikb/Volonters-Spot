@@ -1,4 +1,5 @@
 import './style.css'
+import { NavLink } from 'react-router-dom';
 import Background from './img/Mask Group.jpg'
 
 export const ProfilePage = () => {
@@ -24,7 +25,7 @@ export const ProfilePage = () => {
                      </div>
                  </div>
                   <div className="right">
-                  <button>Редактировать профиль</button>
+               <NavLink to="/profile/:id/edit" ><button>Редактировать профиль</button></NavLink>
                         <h3>Посещенные события</h3>
                         <div>Нет посещенных событий</div>
                         <h3>Предшествующие события</h3>

@@ -19,7 +19,7 @@ const HamburgerMenu = () => {
         <span></span>
       </div>
       <ul className={`menu-items ${isOpen ? 'open' : ''}`}>
-        <NavLink to="/about">
+        <NavLink to="/profile">
           <button className="aboutActive" onClick={toggleMenu}>
             Профиль
           </button>
@@ -70,7 +70,7 @@ export function Header() {
         <div className="header">
           <NavLink to='/' className='logo'>Volunteer's <span>spot</span></NavLink>
             
-            <NavLink to="/about">
+            <NavLink to="/profile">
               <button className='about'>Профиль</button>
             </NavLink>
             <NavLink to="/events">
