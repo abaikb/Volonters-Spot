@@ -1,7 +1,7 @@
-import './style.css'
+import './style.css';
 
-import HamburgerIcon from '../image/bars.png'
-import { NavLink } from 'react-router-dom'
+import HamburgerIcon from '../image/bars.png';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 const HamburgerMenu = () => {
@@ -19,24 +19,33 @@ const HamburgerMenu = () => {
         <span></span>
       </div>
       <ul className={`menu-items ${isOpen ? 'open' : ''}`}>
-            <NavLink to="/about">
-              <button className='aboutActive'>Профиль</button>
-            </NavLink>  
-            <NavLink to="/events">
-              <button className='eventsActive'>События</button>
-            </NavLink>    
-            <NavLink to="/signup">
-              <button className='signupActive'>Зарегистрироваться</button>
-            </NavLink>
-            <NavLink to="/login">
-              <button className='loginActive'>Войти</button>
-            </NavLink>   
+        <NavLink to="/about">
+          <button className="aboutActive" onClick={toggleMenu}>
+            Профиль
+          </button>
+        </NavLink>
+        <NavLink to="/events">
+          <button className="eventsActive" onClick={toggleMenu}>
+            События
+          </button>
+        </NavLink>
+        <NavLink to="/signup">
+          <button className="signupActive" onClick={toggleMenu}>
+            Зарегистрироваться
+          </button>
+        </NavLink>
+        <NavLink to="/login">
+          <button className="loginActive" onClick={toggleMenu}>
+            Войти
+          </button>
+        </NavLink>
       </ul>
     </div>
   );
 };
 
 export default HamburgerMenu;
+
 
 
 

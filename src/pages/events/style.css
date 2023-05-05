@@ -1,4 +1,6 @@
 .box {
+  height: 100vh;
+  widows: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
