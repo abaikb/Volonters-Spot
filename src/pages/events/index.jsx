@@ -13,7 +13,6 @@ export const EventsPage = () => {
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
-        console.log(data);
       })
       .catch((err) => {
         setError("произошла ошибка");
