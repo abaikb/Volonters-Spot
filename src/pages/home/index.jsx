@@ -1,5 +1,9 @@
+import { Hero } from "../../component/hero/index.jsx"
+
 export const HomePage = () => {
     return (
-        <div>HomePage</div>
+        <div>
+             <Hero/>
+        </div>
     )
 }
