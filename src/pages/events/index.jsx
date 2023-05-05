@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { mockFetch } from "../../utils/mockFetch";
 import { EventItem } from "../../component/event-item";
 import "./style.css";
 
@@ -10,10 +9,11 @@ export const EventsPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:3000/posts')
+    fetch('http://16.170.37.57/api/v1/app/event/')
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
+        console.log(data);
       })
       .catch((err) => {
         setError("произошла ошибка");
