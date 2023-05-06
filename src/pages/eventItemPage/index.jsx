@@ -32,7 +32,7 @@ export const EventItemPage = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    fetch(`${api}/${id}`)
+    fetch(`${api}${id}/detail`)
       .then(res => res.json())
       .then(data => {
         setEvent(data)
@@ -44,7 +44,7 @@ export const EventItemPage = () => {
       <EventItemContainer>
         <EventItemTitle>{event.name}</EventItemTitle>
         <EventItemDesc>{event.desc}</EventItemDesc>
-        <EventItemImage src={event.image} alt={event.name} />
+        <EventItemImage src={event.img} alt={event.name} />
         <p>Date: {event.date}</p>
         <p>Location: {event.place}</p>
       </EventItemContainer>

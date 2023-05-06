@@ -1,6 +1,5 @@
 .box {
-  height: 100vh;
-  widows: 100%;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +12,10 @@
 }
 
 .event-img {
+  width: 370px;
+  height: 250px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .even-img:hover {

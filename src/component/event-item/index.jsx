@@ -6,7 +6,7 @@ export const EventItem = ({ event }) => {
       <div className="event-list">
         <div className="event-item">
           <div className="event-title">{event.name}</div>
-          <img className="event-img" src={event.image} alt="" />
+          <img className="event-img" src={event.img} alt="" />
           <p className="title">{event.desc}</p>
           <Link to={`/events/${event.id}`}>подробнее</Link>
         </div>
