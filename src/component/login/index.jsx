@@ -21,7 +21,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch("http://localhost:1717/login", {
+    fetch("http://16.170.37.57/api/v1/user/auth_token/", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {

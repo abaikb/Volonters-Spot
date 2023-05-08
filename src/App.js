@@ -10,6 +10,7 @@ import { SignupPage } from "./pages/signup";
 import { ProfilePage } from "./pages/profile";
 import { NotFoundPage } from "./pages/not-foud";
 import { Layout } from "./component/layout";
+import { EventCreate } from "./pages/event-create";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
 
           <Route path="/about" element={<AboutPage />} />
           <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/create" element={<EventCreate />} />
+
+
           <Route path="/events/:id" element={<EventItemPage />} />
           <Route path="/events/:id/edit" element={<EventFormPage />} />
           <Route path="/events/new" element={<EventFormPage />} />

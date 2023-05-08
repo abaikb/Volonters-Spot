@@ -9,24 +9,34 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
-      console.log("Username:", username);
-      console.log("Email:", email);
-      console.log("Password:", password);
-      console.log("Confirm Password:", confirmPassword);
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setErrors({})
+      const data = { username, email, password };
+      try {
+        const response = await fetch('http://16.170.37.57/api/v1/user/register/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        console.log(result);
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        setErrors({});
+      } catch (error) {
+        console.error('Error registering user:', error);
+      }
     } else {
       setErrors(validationErrors);
     }
   };
-
+  
   const validateForm = () => {
     const errors = {};
     if (!username.trim()) {
