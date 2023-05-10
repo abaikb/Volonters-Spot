@@ -24,7 +24,7 @@ export const EventsPage = () => {
 
   return (
     <div>
-      <div className="box">
+      <div className="box-event">
         {loading && <div>Loading...</div>}
         {error && <div style={{ color: "red" }}>{error}</div>}
         {events.map((e) => (

@@ -43,7 +43,7 @@ const CreateEventForm = () => {
       const response = await fetch('http://16.170.37.57/api/v1/app/event/create/', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Token ${token}`
         },
         body: eventData
       });

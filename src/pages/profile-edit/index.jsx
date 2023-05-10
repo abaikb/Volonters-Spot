@@ -32,9 +32,9 @@ export const ProfileEdit = () => {
     const data = {
       username: name,
       birth_date: birthDate,
-      city,
+      city: avatar,
       number_phone: phoneNumber,
-      avatar,
+      avatar: avatar,
       user: 1,
     };
     try {
@@ -64,7 +64,7 @@ export const ProfileEdit = () => {
             </div>
             <div className="right">
               <h4>Фото профиля</h4>
-              <input className="photoButton" type="file" accept="image/*" onChange={handleChange} />
+              <input className="photoButton" type="file" accept="image/*" onChange={handleChange} required/>
             </div>
           </div>
           <div className="boxMain">

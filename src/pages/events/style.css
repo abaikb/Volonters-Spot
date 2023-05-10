@@ -1,4 +1,4 @@
-.box {
+.box-event {
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -18,9 +18,7 @@
   object-fit: cover;
 }
 
-.even-img:hover {
-  transform: scale(1.1);
-}
+
 
 .event-item {
   display: flex;

@@ -27,7 +27,8 @@ const Register = () => {
         if (!response.ok) throw new Error('regist error')
         const result = await response.json();
         console.log(result);
-        localStorage.setItem("token", result.token); // сохранение токена в localStorage
+        localStorage.setItem("username", username);
+        localStorage.setItem("token", result.token);
         setUsername('');
         setEmail('');
         setPassword('');
