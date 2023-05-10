@@ -73,10 +73,8 @@ export const ProfileEdit = () => {
               <input type="date" placeholder="Дата рождения" name="birthDate" id="birthDate" value={formData.birthDate} onChange={handleChange} />
               <input type="text" placeholder="Место проживания" name="city" id="city" value={formData.city} onChange={handleChange} />
               <input type="number" placeholder="Телефонный номер" name="phoneNumber" id="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
-              <div className="socialMedia">
-                <input type="text" placeholder="Instagram" name="instagram" id="instagram" value={formData.instagram} onChange={handleChange} />
-              </div>
-              <button type="submit">Создать профиль</button>
+              <input type="text" placeholder="Instagram" name="instagram" id="instagram" value={formData.instagram} onChange={handleChange} />
+              <button type="submit">Создать профиль</button>            
             </form>
           </div>
         </div>

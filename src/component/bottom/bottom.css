@@ -81,9 +81,7 @@
     color: white;
     margin-top: 10px;
 }
-.bottom h6 {
-    margin-bottom: 10px;
-}
+
 @media screen and (max-width: 1000px) {
     .bottom {
         height: 600px;
