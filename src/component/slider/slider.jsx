@@ -14,7 +14,8 @@ import { EffectCoverflow, Pagination } from "swiper";
 
 export default function Slider() {
   return (
-    <>
+    <div className="slider">
+        <h1>Галерея проведенных событий:</h1>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -59,6 +60,6 @@ export default function Slider() {
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj_NCsZeBMrsmoZtyR3XvaV5BY2FWYyQyI2W3jxI62v4BZQiZU6HwsVLvmky8JOXkP7iY&usqp=CAU" />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
-
+* {
+    font-family: 'Open Sans', sans-serif;
+}
 .profileEditBody {
     display: flex;
     justify-content: center;
@@ -41,7 +43,6 @@
     border-radius: 50%;
     background-image: url(./img/2023-05-02\ 16.00.33.jpg);
     background-size: contain;
-
 }
 .photoEdit .right button {
     width: 120px;
