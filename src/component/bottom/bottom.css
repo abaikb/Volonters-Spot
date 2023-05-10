@@ -15,14 +15,18 @@
 }
 .bottom .socialMedia, .techSupport, .questions {
     display: flex;
-    align-items: start;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: start;
     flex-direction: column;
     text-align: center;
     height: 90px;
     width: 40%;
     margin-left: 5%;
-
+}
+.bottom h6 {
+    font-size: 14px;
+    color: #575859;
+    margin-bottom: 10px;
 }
 .bottom .socialMedia div {
     display: flex;
@@ -82,7 +86,7 @@
     margin-top: 10px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1144px) {
     .bottom {
         height: 600px;
         flex-direction: column;
