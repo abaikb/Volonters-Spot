@@ -4,22 +4,17 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .event-title {
   font-size: 18px;
   font-style: normal;
   font-weight: bold;
 }
-
 .event-img {
-  width: 370px;
+  width: 320px;
   height: 250px;
   border-radius: 10px;
   object-fit: cover;
 }
-
-
-
 .event-item {
   display: flex;
   flex-direction: column;
@@ -29,15 +24,44 @@
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: 400px;
+  width: 350px;
   height: auto;
   margin: 15px;
   text-align: center;
   cursor: pointer;
 }
-
 .title {
   font-style: italic;
+}
+.eventChange {
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 700;
+
+  background-color: #45B871;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+.eventDelete {
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 700;
+
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.eventMore {
+  color: #575859;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 

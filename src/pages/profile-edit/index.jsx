@@ -63,8 +63,11 @@ export const ProfileEdit = () => {
               <div className="circle"></div>
             </div>
             <div className="right">
-              <h4>Фото профиля</h4>
-              <input className="photoButton" type="file" accept="image/*" onChange={handleChange} required/>
+              <h4>Фото профиля:</h4>
+              <label className='fileChooser'>
+                <input id="photoButton" type="file" accept="image/*" onChange={handleChange} required/>
+                <span className="fileChooserButton">Добавить фотографию</span>
+              </label>
             </div>
           </div>
           <div className="boxMain">
