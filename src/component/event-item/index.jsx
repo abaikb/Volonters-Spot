@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const EventItem = ({ event }) => {
   const [use, setUse] = useState(false);
-  // const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   function f() {
     setUse(!use);
@@ -26,13 +26,8 @@ export const EventItem = ({ event }) => {
           <img className="event-img" src={event.img} alt="" />
           <p className="title">{event.desc}</p>
           <div>
-<<<<<<< HEAD
-            <Link to={`/events/edit`}><button>редактировать</button></Link>
-            <button onClick={f}>удалить</button>
-=======
-            <button className="eventChange">Редактировать</button>
+            <Link to={`/events/edit`}><button className="eventChange">Редактировать</button></Link>
             <button className="eventDelete" onClick={f}>Удалить</button>
->>>>>>> refs/remotes/origin/main
           </div>
 
           <Link to={`/events/${event.id}`} className="eventMore">Подробнее...</Link>
