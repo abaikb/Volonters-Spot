@@ -32,9 +32,9 @@ export const ProfileEdit = () => {
     const data = {
       username: name,
       birth_date: birthDate,
-      city: avatar,
+      city,
       number_phone: phoneNumber,
-      avatar: avatar,
+      avatar,
       user: 1,
     };
     try {

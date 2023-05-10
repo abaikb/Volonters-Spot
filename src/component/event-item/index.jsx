@@ -26,7 +26,7 @@ export const EventItem = ({ event }) => {
           <img className="event-img" src={event.img} alt="" />
           <p className="title">{event.desc}</p>
           <div>
-            <button>редактировать</button>
+            <Link to={`/events/edit`}><button>редактировать</button></Link>
             <button onClick={f}>удалить</button>
           </div>
 
