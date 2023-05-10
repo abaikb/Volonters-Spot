@@ -2,7 +2,7 @@ import './style.css';
 
 import HamburgerIcon from '../image/bars.png';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,48 +44,59 @@ const HamburgerMenu = () => {
   );
 };
 
-export default HamburgerMenu;
-
-
-
-
 export function Header() {
-    // const App = () => {
-    //     const [isOpen, setIsOpen] = useState(false);
-      
-    //     const handleToggle = () => {
-    //       setIsOpen(!isOpen);
-    //     }
-      
-    //     return (
-    //       <div>
-    //         <MenuIcon onClick={handleToggle} />
-    //         {isOpen && <Sidebar setIsOpen={setIsOpen} />}
-    //       </div>
-    //     );
-    //   }
+  const api = 'http://16.170.37.57/api/v1/app/profile/'
+  const token = localStorage.getItem('token');
+  const [user, setUser] = useState(null);
 
-    return (
-        <>
-        <div className="header">
-          <NavLink to='/' className='logo'>Volunteer's <span>spot</span></NavLink>
-            
-            <NavLink to="/profile">
-              <button className='about'>Профиль</button>
-            </NavLink>
-            <NavLink to="/events">
-              <button className='events'>События</button>
-            </NavLink>
+  useEffect(() => {
+    if (token) {
+      fetch(`${api}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setUser(data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [token]);
+
+  return (
+    <>
+      <div className="header">
+        <NavLink to="/" className="logo">
+          Volunteer's <span>spot</span>
+        </NavLink>
+
+        <NavLink to="/profile">
+          <button className="about">Профиль</button>
+        </NavLink>
+        <NavLink to="/events">
+          <button className="events">События</button>
+        </NavLink>
+        {!token && (
+          <>
             <NavLink to="/signup">
-              <button className='signup'>Зарегистрироваться</button>
+              <button className="signup">Зарегистрироваться</button>
             </NavLink>
             <NavLink to="/login">
-              <button className='login'>Войти</button>
-            </NavLink> 
-            <HamburgerMenu/>
-        </div>
-        
-        </>
-    )
+              <button className="login">Войти</button>
+            </NavLink>
+          </>
+        )}
+        {token && user && (
+          <div className="user-details">
+            <span>Привет, {user.name}!</span>
+            <button className="logout" onClick={() => localStorage.removeItem('token')}>
+              Выйти
+            </button>
+          </div>
+        )}
+        <HamburgerMenu />
+      </div>
+    </>
+  );
 }
-

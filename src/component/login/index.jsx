@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import "./login.css";
 
@@ -18,6 +18,9 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
+  
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,13 +35,15 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("username", username);
       });
-
+  
     try {
       await loginSchema.validate({ username, password }, { abortEarly: false });
       setUsername("");
       setPassword("");
       setErrors({});
+      navigate('/profile')
     } catch (validationErrors) {
       const newErrors = {};
       validationErrors.inner.forEach((error) => {
@@ -47,6 +52,7 @@ const Login = () => {
       setErrors(newErrors);
     }
   };
+
 
   return (
     <div className="wrapper-login">

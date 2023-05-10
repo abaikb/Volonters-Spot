@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password2, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
-      const data = { username, email, password };
+      const data = { username, email, password, password2 };
       try {
         const response = await fetch('http://16.170.37.57/api/v1/user/register/', {
           method: 'POST',
@@ -22,13 +23,18 @@ const Register = () => {
           },
           body: JSON.stringify(data)
         });
+
+        if (!response.ok) throw new Error('regist error')
         const result = await response.json();
         console.log(result);
+        localStorage.setItem("token", result.token); // сохранение токена в localStorage
         setUsername('');
         setEmail('');
         setPassword('');
         setConfirmPassword('');
         setErrors({});
+        navigate('/profile/:id/edit')
+
       } catch (error) {
         console.error('Error registering user:', error);
       }
@@ -36,7 +42,7 @@ const Register = () => {
       setErrors(validationErrors);
     }
   };
-  
+
   const validateForm = () => {
     const errors = {};
     if (!username.trim()) {
@@ -52,11 +58,11 @@ const Register = () => {
     } else if (password.length < 6) {
       errors.password = "Пароль должен быть длиннее 6 символов";
     }
-    if (!confirmPassword) {
-      errors.confirmPassword =
+    if (!password2) {
+      errors.password2 =
         "Подтверждение пароля обязательно для заполнения";
-    } else if (password !== confirmPassword) {
-      errors.confirmPassword = "Подтверждение пароля не соответствует паролю";
+    } else if (password !== password2) {
+      errors.password2 = "Подтверждение пароля не соответствует паролю";
     }
     return errors;
   };
@@ -102,13 +108,13 @@ const Register = () => {
           <input
             type="password"
             id="confirmPassword"
-            className={`form-control ${errors.confirmPassword && "is-invalid"}`}
+            className={`form-control ${errors.password2 && "is-invalid"}`}
             placeholder="Повторить пароль"
-            value={confirmPassword}
+            value={password2}
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
-          {errors.confirmPassword && (
-            <div className="feedback">{errors.confirmPassword}</div>
+          {errors.password2 && (
+            <div className="feedback">{errors.password2}</div>
           )}
         </div>
         <button type="submit" className="btn-signup">
