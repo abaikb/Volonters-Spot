@@ -30,7 +30,7 @@ export const ProfilePage = () => {
         <div className="containerProfile">
             <div className="profile">
                 <div className="left">
-                    <img className='profilePic' src={data?.avatar} alt="avatar" />
+                    <img className='profilePic' src={data?.img} alt="avatar" />
                     <h3>Основная информация:</h3>
                     <div className='info'>
                         <div>Имя:{data?.username}</div>

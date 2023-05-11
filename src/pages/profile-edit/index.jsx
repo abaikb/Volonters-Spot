@@ -9,7 +9,7 @@ export const ProfileEdit = () => {
     city: '',
     phoneNumber: '',
     instagram: '',
-    avatar: null,
+    img: null,
   });
 
   const handleChange = (event) => {
@@ -18,7 +18,7 @@ export const ProfileEdit = () => {
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = () => {
-        setFormData({ ...formData, avatar: reader.result });
+        setFormData({ ...formData, img: reader.result });
       };
     } else {
       setFormData({ ...formData, [name]: value });
@@ -27,14 +27,14 @@ export const ProfileEdit = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { name, birthDate, city, phoneNumber, instagram, avatar } = formData;
+    const { name, birthDate, city, phoneNumber, instagram, img } = formData;
     const token = localStorage.getItem('token');
     const data = {
       username: name,
       birth_date: birthDate,
       city,
       number_phone: phoneNumber,
-      avatar,
+      img,
       user: 1,
     };
     try {
@@ -47,7 +47,6 @@ export const ProfileEdit = () => {
         body: JSON.stringify(data),
       });
       const responseData = await response.json();
-      console.log(responseData);
     } catch (error) {
       console.error('Error creating user profile:', error);
     }

@@ -56,6 +56,7 @@ const EditEventForm = ({ event }) => {
       eventData.append('img', img);
     }
     const token = localStorage.getItem('token');
+    
 
     try {
       const response = await axios.put(`http://16.170.37.57/api/v1/app/event/${lastChar}/`, eventData, {
