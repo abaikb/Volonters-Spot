@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './edit.css';
 
 const EditEventForm = ({ event }) => {
+  const url = window.location.href
+  const lastChar = url.slice(-1);
+
   const [name, setName] = useState(event.name);
   const [date, setDate] = useState(event.date);
   const [place, setPlace] = useState(event.place);
@@ -9,13 +13,14 @@ const EditEventForm = ({ event }) => {
   const [img, setImg] = useState(null);
   const [imageUrl, setImageUrl] = useState(event.img_url);
 
+
   useEffect(() => {
-    if (!event) return null;
     setName(event.name);
     setDate(event.date);
     setPlace(event.place);
     setFullText(event.full_text);
     setImageUrl(event.img_url);
+    console.log(event);
   }, [event]);
 
   const handleNameChange = (event) => {
@@ -53,22 +58,20 @@ const EditEventForm = ({ event }) => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch(`http://16.170.37.57/api/v1/app/event/${event.id}/update/`, {
-        method: 'PUT',
+      const response = await axios.put(`http://16.170.37.57/api/v1/app/event/${lastChar}/`, eventData, {
         headers: {
-          'Authorization': `Token ${token}`
-        },
-        body: eventData
+          'Authorization': `Token ${token}`,
+          'Content-Type': 'multipart/form-data'
+        }
       });
-      const data = await response.json();
-      console.log('Event updated:', data);
+      console.log('Event updated:', response.data);
     } catch (error) {
       console.error('Error updating event:', error);
     }
   };
 
   return (
-    <div className='box'>
+    <div className='box-edit'>
       <form className='create-form' onSubmit={handleSubmit}>
         <label>
           Название мероприятия:

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { EventItem } from "../../component/event-item";
+import EditEventForm from "../../component/events-edit";
 import { Link, NavLink } from "react-router-dom";
 
 import "./style.css";
@@ -34,14 +35,16 @@ export const EventsPage = () => {
         </NavLink>
         </div>
       ) : (
-        <p>не</p>
+        <p></p>
       )}
       <div className="box-event">
         {loading && <div>Loading...</div>}
         {error && <div style={{ color: "red" }}>{error}</div>}
         {events.map((e) => (
+          <div>
           <EventItem key={e.id} event={e} />
-        ))}
+          </div>
+                  ))}
       </div>
     </div>
   );

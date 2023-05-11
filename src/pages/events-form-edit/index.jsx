@@ -1,10 +1,12 @@
 import EditEventForm from "../../component/events-edit"
 
 
-export const EventFormEdit = () => {
+
+export const EventFormEdit = (e) => {
+
     return (
         <div>
-            <EditEventForm  event="to"/>
+            <EditEventForm key={e.id} event={e} />
         </div>
     )
 }

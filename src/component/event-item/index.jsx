@@ -1,11 +1,10 @@
 import "./style.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
 export const EventItem = ({ event }) => {
   const [use, setUse] = useState(false);
-  const token = localStorage.getItem("token");
 
   function f() {
     setUse(!use);
@@ -13,20 +12,13 @@ export const EventItem = ({ event }) => {
 
   return (
     <div>
-       {/* {token ? (
-        <NavLink className="create" to="/events/create">
-          создать события
-        </NavLink>
-      ) : (
-        <p>не</p>
-      )} */}
       <div className="event-list">
         <div className="event-item">
           <div className="event-title">{event.name}</div>
           <img className="event-img" src={event.img} alt="" />
           <p className="title">{event.desc}</p>
           <div>
-            <Link to={`/events/edit`}><button className="eventChange">Редактировать</button></Link>
+            <Link to={`/events/edit/${event.id}`}><button className="eventChange">Редактировать</button></Link>
             <button className="eventDelete" onClick={f}>Удалить</button>
           </div>
 
