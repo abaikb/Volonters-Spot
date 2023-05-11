@@ -42,7 +42,7 @@ export const ProfilePage = () => {
                             </div>
                             <div>
                                 <img src="https://dobro.ru/_next/static/media/location.42966452.svg" alt="" />
-                                Местоположение: <p>{data?.city}</p>  
+                                Местоположение: {data?.city}  
                             </div>
                         </div>
                     </div>

@@ -33,6 +33,7 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        window.location.reload();
         console.log(data);
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", username);

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './create-event.css';
 
 const CreateEventForm = () => {
@@ -7,6 +8,7 @@ const CreateEventForm = () => {
   const [place, setPlace] = useState('');
   const [full_text, setFullText] = useState('');
   const [img, setImg] = useState(null);
+  const navigate = useNavigate()
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -49,6 +51,7 @@ const CreateEventForm = () => {
       });
       const data = await response.json();
       console.log('Event created:', data);
+      navigate('/events')
     } catch (error) {
       console.error('Error creating event:', error);
     }

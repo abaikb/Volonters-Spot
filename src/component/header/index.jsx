@@ -4,7 +4,7 @@ import HamburgerIcon from '../image/bars.png';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ username, data, handleLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -19,6 +19,14 @@ const HamburgerMenu = () => {
         <span></span>
       </div>
       <ul className={`menu-items ${isOpen ? 'open' : ''}`}>
+        {username && data && (
+          <div className="user-details">
+            <div className='name'>{data.username}</div>
+            <button className="logout" onClick={handleLogout}>
+              Выйти
+            </button>
+          </div>
+        )}
         <NavLink to="/profile">
           <button className="aboutActive" onClick={toggleMenu}>
             Профиль
@@ -29,20 +37,25 @@ const HamburgerMenu = () => {
             События
           </button>
         </NavLink>
-        <NavLink to="/signup">
-          <button className="signupActive" onClick={toggleMenu}>
-            Зарегистрироваться
-          </button>
-        </NavLink>
-        <NavLink to="/login">
-          <button className="loginActive" onClick={toggleMenu}>
-            Войти
-          </button>
-        </NavLink>
+        {!username && (
+          <>
+            <NavLink to="/signup">
+              <button className="signupActive" onClick={toggleMenu}>
+                Зарегистрироваться
+              </button>
+            </NavLink>
+            <NavLink to="/login">
+              <button className="loginActive" onClick={toggleMenu}>
+                Войти
+              </button>
+            </NavLink>
+          </>
+        )}
       </ul>
     </div>
   );
 };
+
 
 export function Header() {
   const [data, setData] = useState(null);
@@ -71,6 +84,7 @@ export function Header() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
+    window.location.reload();
   };
 
   return (
@@ -97,15 +111,14 @@ export function Header() {
           </>
         )}
         {username && data && (
-          <div className="user-details">
-            <span>{data.name}!</span>
-            console.log(data.name);
+          <div className="user-burger">
+            <span className='name'>{data.username}</span>
             <button className="logout" onClick={handleLogout}>
               Выйти
             </button>
           </div>
         )}
-        <HamburgerMenu />
+        <HamburgerMenu username={username} data={data} handleLogout={handleLogout} />
       </div>
     </>
   );

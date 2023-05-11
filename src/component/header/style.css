@@ -8,6 +8,13 @@
     padding: 1rem;
     display: none;
   }
+  .logout {
+    background-color: #45B871;
+    color: white;
+    width: 70px;
+    height: 6px;
+    border-radius: 5px;
+  }
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -89,6 +96,14 @@
     font-size: 14px;
 }
 
+.name {
+  background-color: orange;
+  font-style: italic;
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
 .header .signup, .about, .news, .events {
     background-color: transparent;
     color: #575859;
@@ -124,6 +139,17 @@
         justify-content: center;
         align-items: center;
     }
+    .logout {
+      background-color: #e6f0ea;
+      width: 70px;
+      height: 6px;
+      border-radius: 5px;
+      color: black;
+      margin-top: 4px;
+    }
+  .user-burger {
+    display: none;
+  }
   .hamburger span {
     display: block;
     cursor: pointer;

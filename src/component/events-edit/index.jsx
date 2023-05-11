@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './edit.css';
+import { useNavigate } from 'react-router-dom';
 
 const EditEventForm = ({ event }) => {
   const url = window.location.href
@@ -12,6 +13,7 @@ const EditEventForm = ({ event }) => {
   const [full_text, setFullText] = useState(event.full_text);
   const [img, setImg] = useState(null);
   const [imageUrl, setImageUrl] = useState(event.img_url);
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -66,6 +68,7 @@ const EditEventForm = ({ event }) => {
         }
       });
       console.log('Event updated:', response.data);
+      navigate('/events')
     } catch (error) {
       console.error('Error updating event:', error);
     }

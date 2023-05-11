@@ -4,10 +4,26 @@ import { useState } from "react";
 
 
 export const EventItem = ({ event }) => {
-  const [use, setUse] = useState(false);
+  const [setDelete, setUse] = useState(false);
+  const token = localStorage.getItem('token');
 
-  function f() {
-    setUse(!use);
+  function handleDelete() {
+    fetch(`http://16.170.37.57/api/v1/app/event/${event.id}/`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Token ${token}`
+      },
+    })
+    
+    .then(response => {
+      // handle the response from the server
+      if (response.ok) {
+        window.location.reload();
+      }
+    })
+    .catch(error => {
+      // handle errors
+    });
   }
 
   return (
@@ -19,7 +35,7 @@ export const EventItem = ({ event }) => {
           <p className="title">{event.desc}</p>
           <div>
             <Link to={`/events/edit/${event.id}`}><button className="eventChange">Редактировать</button></Link>
-            <button className="eventDelete" onClick={f}>Удалить</button>
+            <button className="eventDelete" onClick={handleDelete}>Удалить</button>
           </div>
 
           <Link to={`/events/${event.id}`} className="eventMore">Подробнее...</Link>
