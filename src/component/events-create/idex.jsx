@@ -55,33 +55,33 @@ const CreateEventForm = () => {
   };
 
   return (
-    <div className='box'>
+     <div className='box'>
       <form className='create-form' onSubmit={handleSubmit}>
         <label>
           Название мероприятия:
           <input type="text" value={name} onChange={handleNameChange} required />
         </label>
-        <br />
+        {/* <br /> */}
         <label>
           Дата проведения:
           <input type="date" value={date} onChange={handleDateChange} required />
         </label>
-        <br />
+        {/* <br /> */}
         <label>
           Место проведения:
           <input type="text" value={place} onChange={handlePlaceChange} required />
         </label>
-        <br />
+        {/* <br /> */}
         <label>
           Описание мероприятия:
           <textarea value={full_text} onChange={handleFullTextChange} required />
         </label>
-        <br />
+        {/* <br /> */}
         <label>
           Изображение мероприятия:
           <input type="file" accept="image/*" onChange={handleImgChange} required />
         </label>
-        <br />
+        {/* <br /> */}
         <button className='btn' type="submit">Создать событие</button>
       </form>
     </div>
