@@ -27,7 +27,7 @@ export const EventsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="wrapperEvents">
       {token ? (
         <div className="wrapperForCreate">
         <NavLink className="create" to="/events/create">
@@ -41,7 +41,7 @@ export const EventsPage = () => {
         {loading && <div>Loading...</div>}
         {error && <div style={{ color: "red" }}>{error}</div>}
         {events.map((e) => (
-          <div>
+          <div className="events-container">
           <EventItem key={e.id} event={e} />
           </div>
                   ))}
