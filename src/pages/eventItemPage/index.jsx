@@ -8,7 +8,7 @@ const EventItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto;
+  margin: 0 auto;
   max-width: 800px;
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
@@ -16,6 +16,7 @@ const EventItemContainer = styled.div`
 `;
 
 const EventItemTitle = styled.h2`
+  margin-top: 100px;
   font-size: 36px;
   margin-bottom: 30px;
 `;
