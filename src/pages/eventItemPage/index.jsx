@@ -66,15 +66,17 @@ export const EventItemPage = () => {
     <EventItemContainer>
       <EventItemTitle>{event.name}</EventItemTitle>
       <EventItemImage src={event.img} alt={event.name} />
+      <EventItemInfoLabel>Описание:</EventItemInfoLabel>
+
       <EventItemText>{event.full_text}</EventItemText>
       <EventItemInfo>
         <EventItemInfoItem>
-          <EventItemInfoLabel>Date:</EventItemInfoLabel>
+          <EventItemInfoLabel>Дата проведения:</EventItemInfoLabel>
           <EventItemInfoValue>{event.date}</EventItemInfoValue>
         </EventItemInfoItem>
         <EventItemInfoItem>
-          <EventItemInfoLabel>Location:</EventItemInfoLabel>
-          <EventItemInfoValue>{event.place}</EventItemInfoValue>
+          {/* <EventItemInfoLabel>Location:</EventItemInfoLabel>
+          <EventItemInfoValue>{event.place}</EventItemInfoValue> */}
         </EventItemInfoItem>
       </EventItemInfo>
     </EventItemContainer>

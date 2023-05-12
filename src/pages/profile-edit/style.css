@@ -2,17 +2,20 @@
 * {
     font-family: 'Open Sans', sans-serif;
 }
+
 .profileEditBody {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 .profileEdit {
     width: 80%;
     height: 85vh;
-    background-color: #E4F5EB;
+    background-image: url(./img/v2.jpeg);
+    background-size: cover;
     color: #575859;
+    margin-top: 80px;
     padding: 20px 0;
     border-radius: 20px;
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
@@ -21,6 +24,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.profileEdit h1 {
+    /* background-color: rgba(81, 165, 80, 0.7); */
+    color: white;
+    border-radius: 5px;
 }
 .profileEdit .boxPicture {
     width: 60%;

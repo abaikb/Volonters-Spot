@@ -21,7 +21,7 @@ const HamburgerMenu = ({ username, data, handleLogout }) => {
       <ul className={`menu-items ${isOpen ? 'open' : ''}`}>
         {username && data && (
           <div className="user-details">
-            <div className='name'>{data.username}</div>
+            <div className="name">{data.username}</div>
             <button className="logout" onClick={handleLogout}>
               Выйти
             </button>
@@ -112,7 +112,7 @@ export function Header() {
         )}
         {username && data && (
           <div className="user-burger">
-            <span className='name'>{data.username}</span>
+            <div className='name'>{data.username}</div>
             <button className="logout" onClick={handleLogout}>
               Выйти
             </button>

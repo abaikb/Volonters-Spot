@@ -61,17 +61,17 @@
   }  
 
 
-
-
-
 /* header */
 .header {
     width: 100%;
     height: 80px;
-    background-color: #E4F5EB;
+    /* background: linear-gradient(90deg, rgba(69,184,113,1) 0%, rgba(210,247,225,1) 33%); */
+    background: linear-gradient(90deg, rgba(69,184,113,1) 0%, rgba(186,238,207,1) 33%);
 
     padding: 20px;
     display: flex;
+    position: fixed;
+    z-index: 5;
 }
 .logo {
     font-family: 'Open Sans', sans-serif;
@@ -79,31 +79,37 @@
     font-size: 24px;
     width: 70%;
     text-decoration: none;
-    color: rgb(44, 42, 42);
+    color: #E4F5EB;
 }
 .logo span {
-    color: #45B871;
+    color: #3ca765;
 }
-
-.logo:hover {
-    color: black;
-}
-
 .header button {
     font-weight: 700;
     height: 40px;
     border: none;
     font-size: 14px;
 }
-
+.logout {
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+}
+.user-burger {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+}
 .name {
-  background-color: orange;
-  font-style: italic;
+  height: 40px;
+  background-color: white;
+  color: #575859;
+  font-weight: 700;
   padding: 8px;
   border-radius: 5px;
   margin-right: 5px;
+  text-align: center;
 }
-
 .header .signup, .about, .news, .events {
     background-color: transparent;
     color: #575859;
@@ -128,24 +134,24 @@
   border-radius: 10px;
   width: 200px;
 
-    margin-right: 20px;
+  margin-right: 20px;
 }
 @media screen and (max-width: 825px) {
-    .header .about, .events, .signup, .login {
-        display: none;
-    }
-    .header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .logout {
-      background-color: #e6f0ea;
-      width: 70px;
-      height: 6px;
-      border-radius: 5px;
-      color: black;
-      margin-top: 4px;
+  .header .about, .events, .signup, .login {
+    display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logout {
+    background-color: #e6f0ea;
+    width: 70px;
+    height: 6px;
+    border-radius: 5px;
+    color: black;
+    margin-top: 4px;
     }
   .user-burger {
     display: none;
@@ -156,5 +162,19 @@
   }
   .menu {
     display: block;
+  }
+  .logout {
+    color: #575859;
+  }
+  .name {
+    width: 70px;
+    margin: 5px 0;
+    margin-right: 30px;
+    background-color: #E4F5EB;
+    color: #575859;
+  }
+  .user-details {
+    display: flex;
+    flex-direction: row;
   }
 }
