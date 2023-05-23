@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { EventItem } from "../../component/event-item";
 import EditEventForm from "../../component/events-edit";
 import { Link, NavLink } from "react-router-dom";
-
 import "./style.css";
+import { mockFetch } from "../../utils/mockFetch";
 const token = localStorage.getItem("token");
 export const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -13,7 +13,7 @@ export const EventsPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://16.170.37.57/api/v1/app/event/')
+    mockFetch("/events.json")
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);

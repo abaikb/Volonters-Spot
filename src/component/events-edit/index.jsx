@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const EditEventForm = ({ event }) => {
   const url = window.location.href
   const lastChar = url.slice(-1);
-
   const [name, setName] = useState(event.name);
   const [date, setDate] = useState(event.date);
   const [place, setPlace] = useState(event.place);

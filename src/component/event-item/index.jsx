@@ -1,6 +1,7 @@
 import "./style.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { mockFetch } from "../../utils/mockFetch";
 
 
 export const EventItem = ({ event }) => {
@@ -8,7 +9,7 @@ export const EventItem = ({ event }) => {
   const token = localStorage.getItem('token');
 
   function handleDelete() {
-    fetch(`http://16.170.37.57/api/v1/app/event/${event.id}/`, {
+    mockFetch(`/events.json${event.id}/`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Token ${token}`
@@ -31,7 +32,7 @@ export const EventItem = ({ event }) => {
       <div className="event-list">
         <div className="event-item">
           <div className="event-title">{event.name}</div>
-          <img className="event-img" src={event.img} alt="" />
+          <img className="event-img" src={event.image} alt="" />
           <p className="title">{event.desc}</p>
           <div>
             <Link to={`/events/edit/${event.id}`}><button className="eventChange">Редактировать</button></Link>
